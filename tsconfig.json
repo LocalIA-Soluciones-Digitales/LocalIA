@@ -37,6 +37,7 @@
     "**/*.mts"
   ],
   "exclude": [
+    "brag-output",
     "node_modules"
   ]
 }

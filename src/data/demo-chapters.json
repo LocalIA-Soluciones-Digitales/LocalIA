@@ -1,0 +1,259 @@
+{
+  "pescados-mariscos-arrantza": [
+    {
+      "start": 0,
+      "title": "Tu báscula. Tu web. Tus cuentas.",
+      "text": "Todo conectado."
+    },
+    {
+      "start": 4.02,
+      "title": "Caso real: Pescados y Mariscos Arrantza",
+      "text": "Pescadería familiar con dos tiendas. Web bilingüe, tienda online, reservas por campaña y portal de hostelería."
+    },
+    {
+      "start": 10.02,
+      "title": "Básculas conectadas",
+      "text": "La báscula, en directo. Cada venta del mostrador llega al panel al momento y descuenta stock. También desde el móvil."
+    },
+    {
+      "start": 16.52,
+      "title": "Precios automáticos",
+      "text": "Precio en la báscula, precio en la web. La web lee el catálogo de la báscula de forma automática y te avisa de cada subida o bajada."
+    },
+    {
+      "start": 23.02,
+      "title": "Compras por foto",
+      "text": "Haz una foto al albarán. El resto, solo. Proveedor, fecha, kilos e importes se leen de la foto o del PDF del correo. Gasto y stock, apuntados."
+    },
+    {
+      "start": 30.02,
+      "title": "Stock automático",
+      "text": "El stock se cuenta solo. Baja con cada venta de la báscula y de la web, sube con cada albarán y avisa antes de quedarte sin género."
+    },
+    {
+      "start": 36.52,
+      "title": "Panel de gestión",
+      "text": "Todo lo de hoy, en una pantalla. Pedidos, reservas de Navidad, hostelería y reseñas en un panel que te avisa en el móvil."
+    },
+    {
+      "start": 43.02,
+      "title": "Previsiones",
+      "text": "Sabe lo que vas a vender. Compara hoy con los mismos días de otras semanas y te dice qué te va a faltar antes de que falte."
+    },
+    {
+      "start": 49.52,
+      "title": "Resumen",
+      "text": "Básculas conectadas · Precios al día · Compras por foto · Stock automático · Tienda y reservas · Portal hostelería · Avisos al móvil · Previsiones"
+    }
+  ],
+  "palomita-bar": [
+    {
+      "start": 0,
+      "title": "Escanean. Piden. Pagan.",
+      "text": "Y la cocina ya lo sabe."
+    },
+    {
+      "start": 4.21,
+      "title": "Caso real: Palomita Bar",
+      "text": "Coctelería y picoteo. Web propia y una plataforma de pedido en mesa con cocina y barra en tiempo real."
+    },
+    {
+      "start": 10.48,
+      "title": "Pedido en mesa",
+      "text": "Cada mesa, su propia carta. El cliente escanea el QR, ve cada plato con su foto, calorías y alérgenos, y envía el pedido."
+    },
+    {
+      "start": 19.88,
+      "title": "Cocina y barra",
+      "text": "La comanda llega sola a su estación. Cocina ve la comida y barra las bebidas. El pedido está listo cuando las dos terminan."
+    },
+    {
+      "start": 26.67,
+      "title": "Impresión automática",
+      "text": "Aceptas el pedido. Se imprime solo. Cada estación recibe su comanda en su impresora: la comida en cocina, las bebidas en barra."
+    },
+    {
+      "start": 33.47,
+      "title": "Cuenta dividida",
+      "text": "Cada uno paga lo suyo. En grupo, cada comensal paga su parte con tarjeta desde su móvil. Sin cuentas en una servilleta."
+    },
+    {
+      "start": 40.26,
+      "title": "Plano de salón",
+      "text": "Todo el salón, de un vistazo. El local en 3D con cada mesa en su sitio: libre, ocupada, reservada o pagando, en tiempo real."
+    },
+    {
+      "start": 47.57,
+      "title": "Panel administrador",
+      "text": "Tus números, sin pedirlos. Ventas, pedidos, visitas a la web y lo más pedido, al día. Con reservas, reseñas y fidelización."
+    },
+    {
+      "start": 54.37,
+      "title": "Resumen",
+      "text": "Pedido en mesa · Cocina y barra · Comandas impresas · Pago por comensal · Plano de salón · Reservas online · Fidelización · Informes"
+    }
+  ],
+  "bar-la-osa": [
+    {
+      "start": 0,
+      "title": "Web. Carta. Reservas. Caja.",
+      "text": "Desde el primer día."
+    },
+    {
+      "start": 4.38,
+      "title": "Caso real: Bar de Tapas La Osa",
+      "text": "Bar de tapas con terraza. Identidad propia sobre la plataforma de hostelería de LocalIA."
+    },
+    {
+      "start": 10.93,
+      "title": "Carta editable",
+      "text": "Cambias la carta. La web, al momento. Productos, precios, alérgenos y disponibilidad desde el panel, sin tocar código."
+    },
+    {
+      "start": 18.02,
+      "title": "Venta rápida",
+      "text": "La barra cobra en dos toques. Caja táctil para la barra: tocas los productos, el ticket se suma solo y se cobra al momento."
+    },
+    {
+      "start": 25.12,
+      "title": "Reservas",
+      "text": "Reservan en la web. Entra en tu agenda. Cada reserva entra sola en el panel, con su hora, su zona y su mesa."
+    },
+    {
+      "start": 32.21,
+      "title": "Fidelización",
+      "text": "Clientes que vuelven. Tú pones la regla y el premio. Cuando un cliente la cumple, se le avisa sin que tengas que acordarte."
+    },
+    {
+      "start": 39.3,
+      "title": "Plataforma LocalIA",
+      "text": "Negocio nuevo, sistema probado. La Osa usa el mismo sistema que Palomita Bar, con sus datos separados. Menos coste y menos plazo."
+    },
+    {
+      "start": 46.94,
+      "title": "Resumen",
+      "text": "Web propia · Carta editable · Venta rápida · Reservas online · Cocina y mesas · Fidelización · Multi-negocio · Datos aislados"
+    }
+  ],
+  "amway-barakaldo": [
+    {
+      "start": 0,
+      "title": "Pedido. Aviso. Recogida.",
+      "text": "Todo desde tu móvil."
+    },
+    {
+      "start": 4.21,
+      "title": "Caso real: Amway Barakaldo",
+      "text": "Distribuidor independiente con más de 250 productos. Tienda online, pago con tarjeta y recogida en el local."
+    },
+    {
+      "start": 10.48,
+      "title": "Avisos al instante",
+      "text": "Cada pedido, en tu bolsillo. El panel se instala como app en el móvil y avisa de cada pedido y cada solicitud al momento."
+    },
+    {
+      "start": 17.27,
+      "title": "WhatsApp en un toque",
+      "text": "El mensaje ya está escrito. Confirmar el pedido, avisar de que está listo o recordar la recogida: el texto sale con los datos del pedido."
+    },
+    {
+      "start": 24.07,
+      "title": "Contabilidad",
+      "text": "Sabes lo que ganas de verdad. Ventas, lo que pagas a Amway, comisiones de tarjeta y otros gastos: el beneficio neto sale solo."
+    },
+    {
+      "start": 30.86,
+      "title": "Reseñas de Google",
+      "text": "Más reseñas, sin perseguir a nadie. Pide reseñas a quien ya ha recogido su pedido y responde a las de Google desde el propio panel."
+    },
+    {
+      "start": 37.65,
+      "title": "Anuncios en la web",
+      "text": "Publica un aviso. Se retira solo. Crea avisos y ofertas para la tienda, elige cuándo se muestran y desaparecen al pasar la fecha."
+    },
+    {
+      "start": 44.45,
+      "title": "Resumen",
+      "text": "Tienda online · Pago con tarjeta · Avisos al móvil · WhatsApp · Agenda de recogidas · Contabilidad · Reseñas de Google · Anuncios"
+    }
+  ],
+  "electric-instalaciones-electricas": [
+    {
+      "start": 0,
+      "title": "Se va la luz. Buscan electricista.",
+      "text": "Y el aviso te llega completo."
+    },
+    {
+      "start": 4.02,
+      "title": "Caso real: Electric Instalaciones Eléctricas",
+      "text": "Electricista de urgencias 24 h. Una web de captación con SEO local y avisos completos por WhatsApp."
+    },
+    {
+      "start": 10.02,
+      "title": "Diagnóstico guiado",
+      "text": "Dos preguntas y sabe qué pasa. El cliente responde con un toque. La web detecta la urgencia y si hay peligro."
+    },
+    {
+      "start": 17.02,
+      "title": "Aviso por WhatsApp",
+      "text": "El aviso llega listo para actuar. Avería, urgencia, dirección y teléfono en un solo mensaje. Sin volver a llamar para preguntar."
+    },
+    {
+      "start": 24.02,
+      "title": "Copia por email",
+      "text": "Y ningún aviso se pierde. Cada aviso llega también por email con la foto adjunta, y se guarda una copia de seguridad."
+    },
+    {
+      "start": 30.52,
+      "title": "SEO local",
+      "text": "Aparece en cada pueblo y servicio. Páginas por servicio y por localidad creadas desde datos, con sitemap y datos estructurados para Google."
+    },
+    {
+      "start": 37.02,
+      "title": "Medición",
+      "text": "Sabes qué trae cada llamada. Llamadas, WhatsApp y formularios se miden como conversiones, listas para campañas y con consentimiento."
+    },
+    {
+      "start": 43.52,
+      "title": "Resumen",
+      "text": "Diagnóstico guiado · Aviso por WhatsApp · Copia por email · SEO local · Datos estructurados · Medición"
+    }
+  ],
+  "reformas-integrales-martin": [
+    {
+      "start": 0,
+      "title": "¿Cuánto cuesta mi reforma?",
+      "text": "Respuesta en segundos."
+    },
+    {
+      "start": 4.64,
+      "title": "Caso real: Reformas Integrales Martín",
+      "text": "Reformas integrales en Bizkaia. Web con proyectos antes/después, calculadora de presupuesto y base preparada para IA."
+    },
+    {
+      "start": 11.18,
+      "title": "Calculadora",
+      "text": "Una estimación antes de llamar. Tipo de inmueble, alcance y metros: el cliente ve un rango orientativo al momento y deja sus datos."
+    },
+    {
+      "start": 18.82,
+      "title": "Antes / después",
+      "text": "Los resultados hablan solos. Proyectos filtrables por tipo con comparador deslizante. Confianza antes de la primera visita."
+    },
+    {
+      "start": 25.92,
+      "title": "Solicitudes priorizadas",
+      "text": "Cada solicitud, ya priorizada. La web puntúa cada contacto y explica por qué, para llamar primero a quien tiene prisa."
+    },
+    {
+      "start": 33.56,
+      "title": "Preparada para IA",
+      "text": "Seis agentes, listos para la IA. Cada tarea tiene su agente con lógica propia. Conectar un modelo de IA es un cambio interno, no un rediseño."
+    },
+    {
+      "start": 41.2,
+      "title": "Resumen",
+      "text": "Calculadora · Antes / después · Solicitudes priorizadas · Agentes para IA · SEO local · Contacto móvil"
+    }
+  ]
+}

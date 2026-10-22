@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Play } from "lucide-react";
 import { BrowserFrame } from "@/components/projects/DeviceFrames";
 import { ScrollScreen } from "@/components/projects/ScrollScreen";
 import type { Project } from "@/data/projects";
@@ -14,8 +14,13 @@ export function ProjectCard({ project: p }: { project: Project }) {
       </BrowserFrame>
       <div className="mt-6 flex items-start justify-between gap-6">
         <div>
-          <p className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-fog-500">
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-fog-500">
             {p.sector} · {p.location}
+            {p.demo && (
+              <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-fog-100 ring-1 ring-inset ring-white/15">
+                <Play aria-hidden className="size-2.5 fill-current" /> Vídeo
+              </span>
+            )}
           </p>
           <h3 className="mt-2 text-2xl font-medium tracking-[-0.035em] text-white md:text-[1.7rem]">{p.name}</h3>
           <p className="mt-2 max-w-md text-sm leading-relaxed text-fog-400">{p.tagline}</p>

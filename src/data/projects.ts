@@ -15,6 +15,7 @@
  */
 import { projectMedia, type Media } from "@/lib/media";
 import type { ServiceKey } from "@/data/services";
+import DEMO_CHAPTERS from "@/data/demo-chapters.json";
 
 export type SectorKey = "hosteleria" | "alimentacion" | "servicios-tecnicos" | "ecommerce" | "reformas";
 
@@ -29,6 +30,26 @@ export interface ProjectFeature {
   title: string;
   description: string;
 }
+
+export interface DemoChapter {
+  /** Segundo en el que empieza la escena. */
+  start: number;
+  title: string;
+  /** Texto que aparece en pantalla: sirve de alternativa textual al vídeo. */
+  text: string;
+}
+
+export interface ProjectDemo {
+  src: string;
+  poster: string;
+  /** Pista WebVTT de capítulos. */
+  chaptersTrack: string;
+  duration: number;
+  chapters: DemoChapter[];
+}
+
+/** Fecha de publicación de los vídeos de demostración (datos estructurados). */
+export const DEMOS_PUBLISHED = "2026-10-21";
 
 export interface GalleryItem extends Media {
   kind: "desktop" | "mobile";
@@ -60,18 +81,22 @@ interface ProjectInput {
   featured: boolean;
   theme: ProjectTheme;
   hasVideo: boolean;
+  /** Duración del vídeo de demostración (demo.mp4 + demo.jpg), si lo tiene. */
+  demoSeconds?: number;
   gallery: { file: string; kind: "desktop" | "mobile"; caption: string }[];
 }
 
-export interface Project extends Omit<ProjectInput, "gallery" | "hasVideo"> {
+export interface Project extends Omit<ProjectInput, "gallery" | "hasVideo" | "demoSeconds"> {
   coverImage: Media;
   mobileImage: Media;
   fullPage: { desktop: Media; mobile: Media };
   video?: { src: string; poster: string };
+  /** Vídeo de demostración con sonido: funcionalidades, panel y automatizaciones. */
+  demo?: ProjectDemo;
   gallery: GalleryItem[];
 }
 
-function defineProject(p: ProjectInput): Project {
+function defineProject({ demoSeconds, ...p }: ProjectInput): Project {
   const m = (file: string, alt: string) => projectMedia(p.slug, file, alt);
   return {
     ...p,
@@ -83,6 +108,15 @@ function defineProject(p: ProjectInput): Project {
     },
     video: p.hasVideo
       ? { src: `/projects/${p.slug}/scroll.mp4`, poster: `/projects/${p.slug}/scroll-poster.jpg` }
+      : undefined,
+    demo: demoSeconds
+      ? {
+          src: `/projects/${p.slug}/demo.mp4`,
+          poster: `/projects/${p.slug}/demo.jpg`,
+          chaptersTrack: `/projects/${p.slug}/demo-chapters.vtt`,
+          duration: demoSeconds,
+          chapters: (DEMO_CHAPTERS as Record<string, DemoChapter[]>)[p.slug] ?? [],
+        }
       : undefined,
     gallery: p.gallery.map((g) => ({ ...m(g.file, `${g.caption} — ${p.name}`), kind: g.kind, caption: g.caption })),
   };
@@ -149,6 +183,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     theme: { accent: "#7cc3f5", surface: "#08131d" },
     hasVideo: true,
+    demoSeconds: 57,
     gallery: [
       { file: "desktop-productos.jpg", kind: "desktop", caption: "Catálogo diario con precios de mercado" },
       { file: "mobile-productos.jpg", kind: "mobile", caption: "Catálogo en móvil" },
@@ -212,6 +247,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     theme: { accent: "#f26bc9", surface: "#130a1a" },
     hasVideo: true,
+    demoSeconds: 62,
     gallery: [
       { file: "desktop-pedir.jpg", kind: "desktop", caption: "Inicio del pedido en mesa" },
       { file: "mobile-carta.jpg", kind: "mobile", caption: "Carta de picoteo en móvil" },
@@ -277,6 +313,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     theme: { accent: "#f7c52b", surface: "#0d0e10" },
     hasVideo: true,
+    demoSeconds: 51,
     gallery: [
       { file: "desktop-servicios.jpg", kind: "desktop", caption: "Servicios con presupuesto directo" },
       { file: "mobile-servicios.jpg", kind: "mobile", caption: "Servicios en móvil" },
@@ -314,7 +351,7 @@ export const PROJECTS: Project[] = [
       { title: "Panel con avisos push", description: "Administración instalable como app con notificaciones de nuevos pedidos." },
     ],
     result: [
-      "En producción en amway-premium.vercel.app.",
+      "En producción en nutriyuly.com.",
       "Un catálogo extenso presentado como una tienda premium, con el proceso de compra y la atención personal conectados.",
     ],
     highlights: ["Más de 250 productos", "Pago con Stripe y avisos push", "Narrativa de scroll y 3D"],
@@ -333,11 +370,12 @@ export const PROJECTS: Project[] = [
       "Stripe",
       "Web Push",
     ],
-    productionUrl: "https://amway-premium.vercel.app",
+    productionUrl: "https://www.nutriyuly.com",
     repositoryUrl: "https://github.com/LocalIA-Soluciones-Digitales/amway-premium",
     featured: true,
     theme: { accent: "#d9bb8b", surface: "#12100c" },
     hasVideo: true,
+    demoSeconds: 52,
     gallery: [
       { file: "desktop-xs-energy.jpg", kind: "desktop", caption: "Página editorial XS Energy" },
       { file: "mobile-catalogo.jpg", kind: "mobile", caption: "Catálogo en móvil" },
@@ -396,6 +434,7 @@ export const PROJECTS: Project[] = [
     featured: false,
     theme: { accent: "#f07a36", surface: "#120c08" },
     hasVideo: true,
+    demoSeconds: 49,
     gallery: [
       { file: "desktop-proyectos.jpg", kind: "desktop", caption: "Galería de proyectos" },
       { file: "mobile-proyectos.jpg", kind: "mobile", caption: "Proyectos en móvil" },
@@ -443,6 +482,7 @@ export const PROJECTS: Project[] = [
     featured: false,
     theme: { accent: "#d7a650", surface: "#120e09" },
     hasVideo: false,
+    demoSeconds: 55,
     gallery: [
       { file: "desktop-carta.jpg", kind: "desktop", caption: "Carta por categorías" },
       { file: "mobile-carta.jpg", kind: "mobile", caption: "Carta en móvil" },
@@ -465,6 +505,8 @@ export function getAdjacentProjects(slug: string): { prev: Project; next: Projec
   const n = PROJECTS.length;
   return { prev: PROJECTS[(i - 1 + n) % n], next: PROJECTS[(i + 1) % n] };
 }
+
+export const DEMO_PROJECTS = PROJECTS.filter((p): p is Project & { demo: ProjectDemo } => Boolean(p.demo));
 
 export function projectsWithService(keys: ServiceKey[]): Project[] {
   return PROJECTS.filter((p) => p.services.some((s) => keys.includes(s)));

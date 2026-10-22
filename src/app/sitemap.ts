@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { PROJECTS } from "@/data/projects";
+import { DEMO_PROJECTS, PROJECTS } from "@/data/projects";
 import { SITE } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -20,6 +20,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: p.freq,
       priority: p.priority,
     })),
+    {
+      url: `${SITE.url}/videos`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+      videos: DEMO_PROJECTS.map((p) => ({
+        title: `${p.name}: así funciona por dentro`,
+        thumbnail_loc: `${SITE.url}${p.demo.poster}`,
+        description: p.shortDescription,
+        content_loc: `${SITE.url}${p.demo.src}`,
+        duration: Math.round(p.demo.duration),
+      })),
+    },
     ...PROJECTS.map((p) => ({
       url: `${SITE.url}/proyectos/${p.slug}`,
       lastModified: now,

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { SITE } from "@/data/site";
 import { SERVICES } from "@/data/services";
-import type { Project } from "@/data/projects";
+import { DEMOS_PUBLISHED, type Project, type ProjectDemo } from "@/data/projects";
+import { isoDuration } from "@/lib/utils";
 
 interface BuildMetadataInput {
   title?: string;
@@ -114,5 +115,31 @@ export function projectSchema(p: Project) {
     creator: { "@id": abs("/#organization") },
     about: { "@type": "Thing", name: p.sector },
     ...(p.productionUrl ? { sameAs: p.productionUrl } : {}),
+  };
+}
+
+/** Vídeo de demostración con sus capítulos como Clip (momentos clave en Google). */
+export function demoVideoSchema(p: Project & { demo: ProjectDemo }) {
+  const { demo } = p;
+  const page = abs(`/videos?v=${p.slug}`);
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: `${p.name}: así funciona por dentro`,
+    description: `${p.shortDescription} Demostración de LocalIA con datos de ejemplo.`,
+    thumbnailUrl: [abs(demo.poster)],
+    uploadDate: DEMOS_PUBLISHED,
+    duration: isoDuration(demo.duration),
+    contentUrl: abs(demo.src),
+    url: page,
+    inLanguage: "es-ES",
+    publisher: { "@id": abs("/#organization") },
+    hasPart: demo.chapters.map((c, i) => ({
+      "@type": "Clip",
+      name: c.title,
+      startOffset: Math.floor(c.start),
+      endOffset: Math.floor(demo.chapters[i + 1]?.start ?? demo.duration),
+      url: `${page}&t=${Math.floor(c.start)}`,
+    })),
   };
 }

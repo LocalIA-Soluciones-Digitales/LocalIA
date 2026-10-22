@@ -4,6 +4,7 @@ export const MAIN_NAV: NavLink[] = [
   { label: "Inicio", href: "/" },
   { label: "Servicios", href: "/servicios" },
   { label: "Proyectos", href: "/proyectos" },
+  { label: "Vídeos", href: "/videos" },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "/contacto" },
 ];
@@ -11,6 +12,7 @@ export const MAIN_NAV: NavLink[] = [
 export const FOOTER_NAV: NavLink[] = [
   { label: "Servicios", href: "/servicios" },
   { label: "Proyectos", href: "/proyectos" },
+  { label: "Vídeos", href: "/videos" },
   { label: "Proceso", href: "/proceso" },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "/contacto" },

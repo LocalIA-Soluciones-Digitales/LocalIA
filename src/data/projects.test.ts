@@ -23,6 +23,11 @@ describe("portfolio", () => {
         expect(fs.existsSync(publicFile(p.video.src)), p.video.src).toBe(true);
         expect(fs.existsSync(publicFile(p.video.poster)), p.video.poster).toBe(true);
       }
+      if (p.demo) {
+        expect(fs.existsSync(publicFile(p.demo.src)), p.demo.src).toBe(true);
+        expect(fs.existsSync(publicFile(p.demo.poster)), p.demo.poster).toBe(true);
+        expect(fs.existsSync(publicFile(p.demo.chaptersTrack)), p.demo.chaptersTrack).toBe(true);
+      }
     }
   });
 
@@ -34,6 +39,18 @@ describe("portfolio", () => {
       expect(p.result.length, p.slug).toBeGreaterThan(0);
       expect(p.technologies.length, p.slug).toBeGreaterThan(2);
       expect(p.theme.accent, p.slug).toMatch(/^#[0-9a-f]{6}$/i);
+    }
+  });
+
+  it("los vídeos de demostración tienen capítulos ordenados dentro de su duración", () => {
+    for (const p of PROJECTS) {
+      if (!p.demo) continue;
+      const { chapters, duration } = p.demo;
+      expect(chapters.length, p.slug).toBeGreaterThan(2);
+      expect(chapters[0].start, p.slug).toBe(0);
+      for (let i = 1; i < chapters.length; i++) expect(chapters[i].start, p.slug).toBeGreaterThan(chapters[i - 1].start);
+      expect(chapters[chapters.length - 1].start, p.slug).toBeLessThan(duration);
+      for (const c of chapters) expect(c.title.trim(), p.slug).not.toBe("");
     }
   });
 

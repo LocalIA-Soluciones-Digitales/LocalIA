@@ -1,10 +1,12 @@
+import Link from "next/link";
+import { Play } from "lucide-react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { ProjectShowcase } from "@/components/projects/ProjectShowcase";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { Reveal } from "@/components/animations/Reveal";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { FEATURED_PROJECTS, MORE_PROJECTS, PROJECTS } from "@/data/projects";
+import { DEMO_PROJECTS, FEATURED_PROJECTS, MORE_PROJECTS, PROJECTS } from "@/data/projects";
 import { SITE } from "@/data/site";
 import { sectorsWithProjects } from "@/lib/portfolio";
 import { buildMetadata } from "@/lib/seo";
@@ -46,6 +48,17 @@ export default function ProyectosPage() {
             </li>
           ))}
         </ul>
+        {DEMO_PROJECTS.length > 0 && (
+          <Link
+            href="/videos"
+            className="mt-8 inline-flex items-center gap-2.5 rounded-full py-2 pl-2 pr-4 text-sm font-medium text-fog-50 ring-1 ring-inset ring-white/15 transition-colors hover:bg-white/[0.05] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fog-50"
+          >
+            <span className="grid size-7 place-items-center rounded-full bg-fog-50 text-ink-950">
+              <Play aria-hidden className="ml-0.5 size-3 fill-current" />
+            </span>
+            Ver los {DEMO_PROJECTS.length} proyectos en vídeo
+          </Link>
+        )}
       </PageHeader>
 
       <section aria-label="Proyectos destacados" className="overflow-x-clip">

@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { BrowserFrame, PhoneFrame } from "@/components/projects/DeviceFrames";
+import { DemoPlayer } from "@/components/projects/DemoPlayer";
 import { LazyVideo } from "@/components/projects/LazyVideo";
 import { CaseDevices } from "@/components/projects/case/CaseDevices";
 import { Reveal } from "@/components/animations/Reveal";
@@ -12,7 +13,7 @@ import { Button } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { PROJECTS, getAdjacentProjects, getProject, type Project } from "@/data/projects";
 import { SERVICE_LABELS } from "@/data/services";
-import { buildMetadata, projectSchema } from "@/lib/seo";
+import { buildMetadata, demoVideoSchema, projectSchema } from "@/lib/seo";
 import { cn, prettyUrl } from "@/lib/utils";
 
 export const dynamicParams = false;
@@ -44,6 +45,7 @@ export default async function CasePage({ params }: Params) {
   return (
     <article style={{ ["--accent" as string]: p.theme.accent }}>
       <JsonLd data={projectSchema(p)} />
+      {p.demo && <JsonLd data={demoVideoSchema({ ...p, demo: p.demo })} />}
 
       <PageHeader
         eyebrow={`${p.sector} · ${p.location} · ${p.year}`}
@@ -113,6 +115,34 @@ export default async function CasePage({ params }: Params) {
           </dl>
         </Reveal>
       </section>
+
+      {/* Vídeo de demostración */}
+      {p.demo && (
+        <section aria-labelledby="demo" className="border-t border-white/[0.06] py-24 md:py-32">
+          <div className="container-x">
+            <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+              <div className="lg:col-span-6">
+                <SectionLabel id="demo" index="Vídeo" label="Demostración" accent={p.theme.accent} title="Míralo funcionando." />
+              </div>
+              <div className="max-w-md text-sm leading-relaxed text-fog-400 lg:col-span-5 lg:col-start-8">
+                <p>
+                  Un minuto con lo que no se ve desde fuera: qué se automatiza, cómo se gestiona y qué le ahorra al negocio cada día.
+                  Los datos que aparecen en los paneles son de ejemplo.
+                </p>
+                <Link
+                  href={`/videos?v=${p.slug}`}
+                  className="mt-3 inline-flex items-center gap-1.5 font-medium text-fog-100 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fog-50"
+                >
+                  Ver los vídeos de todos los proyectos <ArrowRight aria-hidden className="size-3.5" />
+                </Link>
+              </div>
+            </div>
+            <Reveal className="mt-12">
+              <DemoPlayer demo={p.demo} title={p.name} accent={p.theme.accent} />
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       {/* Reto y solución */}
       <section aria-label="El reto y la solución" className="border-t border-white/[0.06]">
