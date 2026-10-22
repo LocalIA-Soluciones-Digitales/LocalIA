@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { m, useScroll, useTransform } from "framer-motion";
-import { BrowserFrame, PhoneFrame } from "@/components/projects/DeviceFrames";
+import { Hand, MousePointerClick, Play } from "lucide-react";
+import { BrowserFrame, PhoneFrame, PHONE_SCREEN_ASPECT } from "@/components/projects/DeviceFrames";
 import { ScrollScreen } from "@/components/projects/ScrollScreen";
 import { Button } from "@/components/ui/Button";
 import { SERVICE_LABELS } from "@/data/services";
@@ -18,14 +19,25 @@ interface Props {
 
 /**
  * Pieza principal del portfolio: la web real "se navega" dentro del
- * navegador y del móvil a medida que el visitante hace scroll.
+ * navegador y del móvil a medida que el visitante hace scroll. Con
+ * «Explorar tú» las pantallas pasan a tener scroll propio y el visitante
+ * recorre la web a su ritmo.
  */
 export function ProjectShowcase({ project: p, index, total, headingLevel: Heading = "h3" }: Props) {
   const ref = useRef<HTMLElement>(null);
   const reversed = index % 2 === 1;
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const screen = useTransform(scrollYProgress, [0.2, 0.8], [0, 1], { clamp: true });
-  const phoneScreen = useTransform(scrollYProgress, [0.25, 0.85], [0, 1], { clamp: true });
+  // Recorrido automático suave: poca distancia repartida en mucho scroll.
+  const screen = useTransform(scrollYProgress, [0.15, 0.85], [0, 1], { clamp: true });
+  const phoneScreen = useTransform(scrollYProgress, [0.2, 0.9], [0, 1], { clamp: true });
+  const [explore, setExplore] = useState(false);
+
+  useEffect(() => {
+    if (!explore) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setExplore(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [explore]);
   const phoneY = useTransform(scrollYProgress, [0, 1], [70, -70]);
   const glowOpacity = useTransform(scrollYProgress, [0.1, 0.45, 0.75, 1], [0, 1, 1, 0]);
 
@@ -56,8 +68,23 @@ export function ProjectShowcase({ project: p, index, total, headingLevel: Headin
               image={p.fullPage.desktop}
               frameAspect={16 / 10}
               progress={screen}
+              maxShift={40}
+              explore={explore}
+              label={`Web de ${p.name} en escritorio`}
               sizes="(min-width: 1320px) 800px, (min-width: 1024px) 60vw, 92vw"
             />
+            {!explore && (
+              <button
+                type="button"
+                onClick={() => setExplore(true)}
+                className="group/explore absolute inset-0 hidden cursor-pointer items-center justify-center md:flex"
+                aria-label={`Explorar la web de ${p.name}`}
+              >
+                <span className="flex translate-y-2 items-center gap-2 rounded-full bg-ink-950/80 px-4 py-2.5 text-sm font-medium text-white opacity-0 ring-1 ring-white/15 backdrop-blur-md transition duration-300 group-hover/explore:translate-y-0 group-hover/explore:opacity-100 group-focus-visible/explore:translate-y-0 group-focus-visible/explore:opacity-100">
+                  <MousePointerClick aria-hidden className="size-4" /> Explorar esta web
+                </span>
+              </button>
+            )}
           </BrowserFrame>
           <m.div
             style={{ y: phoneY }}
@@ -66,12 +93,17 @@ export function ProjectShowcase({ project: p, index, total, headingLevel: Headin
             <PhoneFrame>
               <ScrollScreen
                 image={p.fullPage.mobile}
-                frameAspect={390 / 744}
+                frameAspect={PHONE_SCREEN_ASPECT}
                 progress={phoneScreen}
+                maxShift={45}
+                explore={explore}
+                label={`Web de ${p.name} en móvil`}
                 sizes="(min-width: 1024px) 230px, 28vw"
               />
             </PhoneFrame>
           </m.div>
+
+          <ScreenModeToggle explore={explore} onChange={setExplore} accent={p.theme.accent} className={reversed ? "lg:left-auto lg:right-0" : undefined} />
         </div>
 
         {/* Texto */}
@@ -120,5 +152,57 @@ export function ProjectShowcase({ project: p, index, total, headingLevel: Headin
         Proyecto {index + 1} de {total}
       </span>
     </article>
+  );
+}
+
+/** Conmutador entre el recorrido automático y la navegación libre de las pantallas. */
+function ScreenModeToggle({
+  explore,
+  onChange,
+  accent,
+  className,
+}: {
+  explore: boolean;
+  onChange: (v: boolean) => void;
+  accent: string;
+  className?: string;
+}) {
+  const options = [
+    { value: false, label: "Automático", Icon: Play },
+    { value: true, label: "Explorar tú", Icon: Hand },
+  ];
+  return (
+    <div className={cn("absolute -bottom-2 left-0 flex flex-wrap items-center gap-x-4 gap-y-2 lg:-bottom-4", className)}>
+      <div role="radiogroup" aria-label="Cómo recorrer la web" className="inline-flex rounded-full bg-white/[0.04] p-1 ring-1 ring-inset ring-white/10">
+        {options.map(({ value, label, Icon }) => {
+          const on = explore === value;
+          return (
+            <button
+              key={label}
+              type="button"
+              role="radio"
+              aria-checked={on}
+              onClick={() => onChange(value)}
+              className={cn(
+                "flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors duration-300",
+                on ? "bg-white text-ink-950" : "text-fog-400 hover:text-white",
+              )}
+            >
+              <Icon aria-hidden className="size-3.5" />
+              {label}
+            </button>
+          );
+        })}
+      </div>
+      <p aria-live="polite" className="hidden text-xs text-fog-500 sm:block">
+        {explore ? (
+          <>
+            <span aria-hidden style={{ color: accent }}>●</span> Rueda, arrastra o desliza dentro de las pantallas
+          </>
+        ) : (
+          "Se recorre sola al hacer scroll"
+        )}
+      </p>
+    </div>
   );
 }

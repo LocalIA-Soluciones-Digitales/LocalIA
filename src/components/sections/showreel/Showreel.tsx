@@ -105,7 +105,7 @@ function ShowreelTile({ item }: { item: ShowreelItem }) {
         <div
           className={cn(
             "relative overflow-hidden bg-ink-800 ring-1 ring-white/10 transition duration-500 group-hover:ring-white/25",
-            isMobile ? "aspect-[390/800] rounded-[1.6rem]" : "aspect-[16/10] rounded-xl",
+            isMobile ? "aspect-[780/1328] rounded-[1.6rem]" : "aspect-[16/10] rounded-xl",
           )}
         >
           {item.type === "video" ? (

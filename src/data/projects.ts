@@ -229,7 +229,7 @@ export const PROJECTS: Project[] = [
     ],
     result: [
       "En producción en palomita-bar.vercel.app.",
-      "La plataforma se diseñó para reutilizarse: el mismo sistema da servicio hoy a otro negocio de hostelería (Bar de Tapas La Osa) sin tocar los datos de ninguno de los dos.",
+      "La plataforma se diseñó para reutilizarse: sobre la misma base construimos después Restaurante La Ofi, con sus datos en un esquema propio.",
     ],
     highlights: ["Pedido en mesa con QR", "Cocina y barra en tiempo real", "Pago por comensal"],
     services: ["web", "reservas", "crm", "automatizacion", "integraciones", "a-medida"],
@@ -258,6 +258,75 @@ export const PROJECTS: Project[] = [
       { file: "desktop-carta.jpg", kind: "desktop", caption: "Carta con filtros por categoría" },
       { file: "mobile-cocteleria.jpg", kind: "mobile", caption: "Coctelería en móvil" },
       { file: "desktop-reservar.jpg", kind: "desktop", caption: "Reservas online" },
+    ],
+  }),
+
+  defineProject({
+    slug: "restaurante-la-ofi",
+    name: "Restaurante La Ofi",
+    client: "Restaurante de menú del día y brasa",
+    sector: "Hostelería",
+    sectorKey: "hosteleria",
+    location: "Derio, Bizkaia",
+    year: 2026,
+    tagline: "Del menú del día a la última mesa, en un solo sistema.",
+    shortDescription:
+      "Web, carta con pedido en mesa y panel de servicio para el restaurante del Parque Tecnológico de Bizkaia: menú del día, cocina y barra, salón y caja.",
+    longDescription:
+      "La Ofi da desayunos, menú del día y brasa a la gente que trabaja en el Parque Tecnológico. Construimos su web editorial, una carta con fotos, alérgenos y pedido desde la mesa, y un panel de servicio por roles: el menú del día se publica en un minuto, los pedidos llegan a cocina y barra por carriles y el salón se controla desde una pantalla.",
+    challenge: [
+      "A mediodía el restaurante se llena en poco tiempo: el menú cambia cada día, las mesas rotan rápido y cocina y barra tienen que ir coordinadas.",
+      "Además, la gente del Parque busca el menú antes de bajar y muchas mesas son grupos de compañeros que quieren pagar cada uno lo suyo.",
+    ],
+    solution: [
+      "Una web con el menú del día siempre al día, la carta completa con fotos, 14 alérgenos y nutrición cuando el restaurante la aporta, reservas y pedidos para recoger por franja.",
+      "En el local, cada mesa tiene su QR: el grupo pide junto o por separado y paga con Stripe. Detrás, un panel por roles con «Hoy», salón 2D y 3D, TPV, cocina y barra por carriles, reservas, menú del día, ventas y caja.",
+    ],
+    features: [
+      { title: "Menú del día en un minuto", description: "El encargado escribe platos, precio e incluidos desde el panel y la web lo muestra al momento." },
+      { title: "Carta con alérgenos", description: "Fotos por plato, los 14 alérgenos de la UE, búsqueda y filtros, y ficha nutricional cuando la aporta el restaurante." },
+      { title: "Pedido en mesa con QR", description: "Cuenta compartida o «cada uno lo suyo», con pago por comensal y estado del pedido en vivo." },
+      { title: "Recogida y grupos", description: "Pedidos para recoger por franja horaria y pedidos de grupo para empresas." },
+      { title: "Cocina y barra por carriles", description: "Cada estación ve solo lo suyo y un pedido mixto no sale hasta que las dos terminan." },
+      { title: "Panel «Hoy»", description: "El servicio en una pantalla: quién llama al camarero, pedidos en marcha y próximas reservas." },
+      { title: "Salón 2D y 3D", description: "Zonas y mesas con su estado, «Mis mesas» para cada camarero y limpieza en bloque." },
+      { title: "TPV, caja y ventas", description: "Venta en barra con fotos, cobro, cierres de caja e informes de ventas y ocupación." },
+    ],
+    result: [
+      "Desplegada en restaurante-la-ofi.vercel.app.",
+      "Construida sobre la base de hostelería de Palomita Bar, con todos sus datos en un esquema propio y aislado del resto de negocios.",
+    ],
+    highlights: ["Menú del día desde el panel", "Pedido en mesa y pago por comensal", "Cocina, salón y caja en tiempo real"],
+    services: ["web", "reservas", "crm", "automatizacion", "integraciones", "a-medida"],
+    technologies: [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL (RLS)",
+      "Stripe Checkout",
+      "Three.js",
+      "React Three Fiber",
+      "Node.js",
+      "Vitest",
+      "PGlite",
+      "Vercel",
+    ],
+    productionUrl: "https://restaurante-la-ofi.vercel.app",
+    repositoryUrl: "https://github.com/LocalIA-Soluciones-Digitales/Restaurante-La-Ofi",
+    featured: true,
+    theme: { accent: "#c9bbff", surface: "#0b1424" },
+    hasVideo: true,
+    demoSeconds: 55,
+    gallery: [
+      { file: "desktop-menu-del-dia.jpg", kind: "desktop", caption: "Menú del día publicado desde el panel" },
+      { file: "mobile-carta.jpg", kind: "mobile", caption: "Carta en móvil" },
+      { file: "desktop-pedir.jpg", kind: "desktop", caption: "Carta con fotos y calorías para pedir" },
+      { file: "mobile-menu-del-dia.jpg", kind: "mobile", caption: "Menú del día en móvil" },
+      { file: "desktop-espacios.jpg", kind: "desktop", caption: "Espacios del restaurante" },
+      { file: "desktop-carta.jpg", kind: "desktop", caption: "Carta editorial" },
+      { file: "mobile-pedir.jpg", kind: "mobile", caption: "Pedido desde el móvil" },
     ],
   }),
 
@@ -447,52 +516,6 @@ export const PROJECTS: Project[] = [
     ],
   }),
 
-  defineProject({
-    slug: "bar-la-osa",
-    name: "Bar de Tapas La Osa",
-    client: "Bar de tapas con terraza",
-    sector: "Hostelería",
-    sectorKey: "hosteleria",
-    location: "Port d'Alcúdia, Mallorca",
-    year: 2026,
-    tagline: "Un negocio nuevo sobre una plataforma probada.",
-    shortDescription:
-      "Web con carta, bebidas y reservas, y todo el sistema de gestión de hostelería de LocalIA, puesto en marcha como un nuevo negocio dentro de la plataforma.",
-    longDescription:
-      "La Osa no empezó de cero: se dio de alta como un negocio nuevo dentro de la plataforma de hostelería que desarrollamos para Palomita Bar. Identidad, contenidos y carta propios; pedidos, cocina, TPV, mesas y fidelización heredados de un sistema que ya funciona.",
-    challenge: [
-      "Un bar de tapas en Mallorca, con menú diario y terraza, necesitaba web y herramientas de gestión sin el coste y el plazo de un desarrollo desde cero.",
-    ],
-    solution: [
-      "Lo incorporamos como un negocio más en la plataforma multi-negocio de LocalIA, con datos aislados del resto, y le dimos una identidad visual y unos contenidos propios.",
-      "La carta se cargó como punto de partida (11 categorías, 38 productos) y se edita desde el propio panel.",
-    ],
-    features: [
-      { title: "Web con identidad propia", description: "Home, carta, bebidas, galería, opiniones y reservas con diseño exclusivo del local." },
-      { title: "Carta editable", description: "Categorías y productos gestionados desde el panel, sin tocar código." },
-      { title: "Gestión completa heredada", description: "TPV de barra, cocina, mesas, reservas y fidelización desde el primer día." },
-      { title: "Datos aislados", description: "Cada negocio de la plataforma ve solo sus datos, con seguridad a nivel de base de datos." },
-    ],
-    result: [
-      "En producción en bar-la-osa.vercel.app.",
-      "Demuestra el valor de construir plataformas y no solo webs: un negocio nuevo con todo el sistema de gestión, reutilizando lo que ya funciona.",
-    ],
-    highlights: ["Plataforma multi-negocio", "Carta editable", "Gestión de hostelería completa"],
-    services: ["web", "reservas", "crm", "a-medida"],
-    technologies: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL (RLS)", "Stripe", "Vercel"],
-    productionUrl: "https://bar-la-osa.vercel.app",
-    repositoryUrl: "https://github.com/LocalIA-Soluciones-Digitales/Bar-La-Osa",
-    featured: false,
-    theme: { accent: "#d7a650", surface: "#120e09" },
-    hasVideo: false,
-    demoSeconds: 55,
-    gallery: [
-      { file: "desktop-carta.jpg", kind: "desktop", caption: "Carta por categorías" },
-      { file: "mobile-carta.jpg", kind: "mobile", caption: "Carta en móvil" },
-      { file: "desktop-reservar.jpg", kind: "desktop", caption: "Reservas online" },
-      { file: "mobile-reservar.jpg", kind: "mobile", caption: "Reservas en móvil" },
-    ],
-  }),
 ];
 
 export const FEATURED_PROJECTS = PROJECTS.filter((p) => p.featured);

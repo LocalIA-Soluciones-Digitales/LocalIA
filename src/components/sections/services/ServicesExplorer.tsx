@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, m } from "framer-motion";
-import { ArrowUpRight, Plus } from "lucide-react";
+import { ArrowUpRight, Check, Globe, LayoutDashboard, Plus, Puzzle, ShoppingBag, Sparkles, Workflow } from "lucide-react";
 import { ServiceVisual } from "@/components/sections/services/ServiceVisual";
-import type { Service } from "@/data/services";
+import type { Service, ServiceVisual as VisualKind } from "@/data/services";
 import { cn } from "@/lib/utils";
 
 export type ServiceProof = { name: string; slug: string };
@@ -15,6 +15,15 @@ interface Props {
   proofs: Record<string, ServiceProof[]>;
 }
 
+const ICONS: Record<VisualKind, typeof Globe> = {
+  web: Globe,
+  automation: Workflow,
+  ai: Sparkles,
+  crm: LayoutDashboard,
+  ecommerce: ShoppingBag,
+  custom: Puzzle,
+};
+
 export function ServicesExplorer({ services, proofs }: Props) {
   const [active, setActive] = useState(0);
   const current = services[active];
@@ -22,11 +31,27 @@ export function ServicesExplorer({ services, proofs }: Props) {
   return (
     <div className="mt-16 grid gap-10 md:mt-24 lg:grid-cols-12 lg:gap-16">
       {/* Lista de servicios */}
-      <ul className="border-t border-white/[0.08] lg:col-span-6">
+      <ul className="space-y-1.5 lg:col-span-5">
         {services.map((s, i) => {
           const on = i === active;
+          const Icon = ICONS[s.visual];
           return (
-            <li key={s.key} className="border-b border-white/[0.08]">
+            <li
+              key={s.key}
+              className={cn(
+                "relative rounded-2xl transition-colors duration-500",
+                on ? "bg-white/[0.035] ring-1 ring-inset ring-white/[0.09]" : "hover:bg-white/[0.02]",
+              )}
+            >
+              {on && (
+                <m.span
+                  aria-hidden
+                  className="absolute bottom-4 left-0 top-4 hidden w-[2px] origin-top rounded-full bg-gradient-to-b from-signal-bright to-cyan lg:block"
+                  initial={{ scaleY: 0 }}
+                  animate={{ scaleY: 1 }}
+                  transition={{ duration: 0.5 }}
+                />
+              )}
               <button
                 type="button"
                 onClick={() => setActive(i)}
@@ -34,30 +59,35 @@ export function ServicesExplorer({ services, proofs }: Props) {
                 onFocus={() => setActive(i)}
                 aria-expanded={on}
                 aria-controls={`service-panel-${s.key}`}
-                className="group flex w-full items-start gap-5 py-6 text-left md:py-7"
+                className="group flex w-full items-center gap-4 px-4 py-4 text-left md:gap-5 md:px-5 md:py-5"
               >
-                <span className={cn("mt-2 font-mono text-xs transition-colors", on ? "text-signal-bright" : "text-fog-500")}>
-                  {s.index}
+                <span
+                  className={cn(
+                    "grid size-11 shrink-0 place-items-center rounded-xl border transition-all duration-500 md:size-12",
+                    on
+                      ? "border-signal-bright/40 bg-signal/15 text-signal-bright shadow-[0_0_30px_-8px_rgb(77_124_255/0.8)]"
+                      : "border-white/[0.08] bg-white/[0.02] text-fog-500 group-hover:text-fog-300",
+                  )}
+                >
+                  <Icon aria-hidden className="size-5" strokeWidth={1.6} />
                 </span>
-                <span className="flex-1">
-                  <span
-                    className={cn(
-                      "block text-[1.6rem] font-medium leading-tight tracking-[-0.035em] transition-colors duration-300 md:text-[2.1rem]",
-                      on ? "text-white" : "text-fog-400 group-hover:text-fog-100",
-                    )}
-                  >
-                    {s.title}
+                <span className="min-w-0 flex-1">
+                  <span className="flex items-baseline gap-3">
+                    <span className={cn("font-mono text-[0.68rem] transition-colors", on ? "text-signal-bright" : "text-fog-500")}>{s.index}</span>
+                    <span
+                      className={cn(
+                        "block text-[1.3rem] font-medium leading-tight tracking-[-0.03em] transition-colors duration-300 md:text-[1.6rem]",
+                        on ? "text-white" : "text-fog-400 group-hover:text-fog-100",
+                      )}
+                    >
+                      {s.title}
+                    </span>
                   </span>
-                  <span className={cn("mt-1.5 block text-sm transition-colors md:text-[0.95rem]", on ? "text-fog-300" : "text-fog-500")}>
-                    {s.lead}
-                  </span>
+                  <span className={cn("mt-1 block text-sm leading-snug transition-colors", on ? "text-fog-300" : "text-fog-500")}>{s.lead}</span>
                 </span>
                 <Plus
                   aria-hidden
-                  className={cn(
-                    "mt-2.5 size-5 shrink-0 transition-all duration-500 lg:hidden",
-                    on ? "rotate-45 text-white" : "text-fog-500",
-                  )}
+                  className={cn("size-5 shrink-0 transition-all duration-500 lg:hidden", on ? "rotate-45 text-white" : "text-fog-500")}
                 />
               </button>
 
@@ -69,7 +99,7 @@ export function ServicesExplorer({ services, proofs }: Props) {
                 )}
               >
                 <div className="overflow-hidden">
-                  <div className="pb-8">
+                  <div className="px-4 pb-6 md:px-5">
                     {on && <ServiceVisual kind={s.visual} />}
                     <ServiceDetail service={s} proofs={proofs[s.key]} />
                   </div>
@@ -81,8 +111,8 @@ export function ServicesExplorer({ services, proofs }: Props) {
       </ul>
 
       {/* Escritorio: panel fijo que cambia con el servicio activo */}
-      <div className="hidden lg:col-span-6 lg:block">
-        <div className="sticky top-28" id={`service-panel-${current.key}`} aria-live="polite">
+      <div className="hidden lg:col-span-7 lg:block">
+        <div className="sticky top-24" id={`service-panel-${current.key}`} aria-live="polite">
           <AnimatePresence mode="wait">
             <m.div
               key={current.key}
@@ -103,17 +133,17 @@ export function ServicesExplorer({ services, proofs }: Props) {
 
 function ServiceDetail({ service, proofs }: { service: Service; proofs: ServiceProof[] }) {
   return (
-    <div className="mt-7">
+    <div className="mt-6">
       <p className="text-[0.98rem] leading-relaxed text-fog-300">{service.description}</p>
-      <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm text-fog-400">
+      <ul className="mt-5 flex flex-wrap gap-2 text-[0.8rem] text-fog-300">
         {service.deliverables.map((d) => (
-          <li key={d} className="flex items-center gap-2.5">
-            <span aria-hidden className="size-1 rounded-full bg-signal-bright" />
+          <li key={d} className="flex items-center gap-1.5 rounded-full bg-white/[0.04] px-3 py-1.5 ring-1 ring-inset ring-white/[0.08]">
+            <Check aria-hidden className="size-3.5 text-cyan" />
             {d}
           </li>
         ))}
       </ul>
-      <div className="mt-7 border-t border-white/[0.07] pt-5">
+      <div className="mt-6 border-t border-white/[0.07] pt-5">
         {proofs.length > 0 ? (
           <>
             <p className="eyebrow mb-3 text-[0.64rem]">Lo hemos hecho en</p>

@@ -38,7 +38,13 @@ export function BrowserFrame({ url, children, className, accent }: BrowserFrameP
   );
 }
 
-/** Marco de móvil. El contenido ocupa un área 390:780 aprox. */
+/**
+ * Proporción del área de pantalla bajo la barra de estado: la misma que las
+ * capturas móviles (780×1328), así ninguna se recorta por los lados.
+ */
+export const PHONE_SCREEN_ASPECT = 780 / 1328;
+
+/** Marco de móvil. El contenido ocupa exactamente PHONE_SCREEN_ASPECT. */
 export function PhoneFrame({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <div
@@ -48,10 +54,11 @@ export function PhoneFrame({ children, className }: { children: React.ReactNode;
         className,
       )}
     >
-      <div className="relative aspect-[390/800] overflow-hidden rounded-[1.65rem] bg-black">
+      {/* 7 % de barra de estado + pantalla 780:1328 → 780:1428 en total */}
+      <div className="relative aspect-[780/1428] overflow-hidden rounded-[1.65rem] bg-black">
         {/* Barra de estado: la isla no tapa la cabecera de la captura */}
         <div className="absolute inset-x-0 bottom-0 top-[7%] overflow-hidden bg-ink-900">{children}</div>
-        <div aria-hidden className="absolute left-1/2 top-[1.6%] z-10 h-[3.2%] w-[30%] -translate-x-1/2 rounded-full bg-ink-800" />
+        <div aria-hidden className="absolute left-1/2 top-[1.8%] z-10 h-[3.4%] w-[30%] -translate-x-1/2 rounded-full bg-ink-800" />
       </div>
     </div>
   );

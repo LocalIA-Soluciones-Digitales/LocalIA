@@ -93,48 +93,6 @@
       "text": "Pedido en mesa · Cocina y barra · Comandas impresas · Pago por comensal · Plano de salón · Reservas online · Fidelización · Informes"
     }
   ],
-  "bar-la-osa": [
-    {
-      "start": 0,
-      "title": "Web. Carta. Reservas. Caja.",
-      "text": "Desde el primer día."
-    },
-    {
-      "start": 4.38,
-      "title": "Caso real: Bar de Tapas La Osa",
-      "text": "Bar de tapas con terraza. Identidad propia sobre la plataforma de hostelería de LocalIA."
-    },
-    {
-      "start": 10.93,
-      "title": "Carta editable",
-      "text": "Cambias la carta. La web, al momento. Productos, precios, alérgenos y disponibilidad desde el panel, sin tocar código."
-    },
-    {
-      "start": 18.02,
-      "title": "Venta rápida",
-      "text": "La barra cobra en dos toques. Caja táctil para la barra: tocas los productos, el ticket se suma solo y se cobra al momento."
-    },
-    {
-      "start": 25.12,
-      "title": "Reservas",
-      "text": "Reservan en la web. Entra en tu agenda. Cada reserva entra sola en el panel, con su hora, su zona y su mesa."
-    },
-    {
-      "start": 32.21,
-      "title": "Fidelización",
-      "text": "Clientes que vuelven. Tú pones la regla y el premio. Cuando un cliente la cumple, se le avisa sin que tengas que acordarte."
-    },
-    {
-      "start": 39.3,
-      "title": "Plataforma LocalIA",
-      "text": "Negocio nuevo, sistema probado. La Osa usa el mismo sistema que Palomita Bar, con sus datos separados. Menos coste y menos plazo."
-    },
-    {
-      "start": 46.94,
-      "title": "Resumen",
-      "text": "Web propia · Carta editable · Venta rápida · Reservas online · Cocina y mesas · Fidelización · Multi-negocio · Datos aislados"
-    }
-  ],
   "amway-barakaldo": [
     {
       "start": 0,
@@ -254,6 +212,48 @@
       "start": 41.2,
       "title": "Resumen",
       "text": "Calculadora · Antes / después · Solicitudes priorizadas · Agentes para IA · SEO local · Contacto móvil"
+    }
+  ],
+  "restaurante-la-ofi": [
+    {
+      "start": 0,
+      "title": "Desayunos. Menú del día. Brasa.",
+      "text": "Y la sala, bajo control."
+    },
+    {
+      "start": 4.38,
+      "title": "Caso real: Restaurante La Ofi",
+      "text": "El restaurante del Parque Tecnológico de Bizkaia: desayunos, menú del día y brasa."
+    },
+    {
+      "start": 10.93,
+      "title": "Menú del día",
+      "text": "Publicas el menú. La web, al momento. El encargado escribe los platos y el precio desde el panel. Nadie tiene que tocar la web."
+    },
+    {
+      "start": 18.02,
+      "title": "Pedido en mesa",
+      "text": "Escanean el QR. Cada uno paga lo suyo. La mesa pide desde el móvil, todos a la misma cuenta o cada comensal por separado."
+    },
+    {
+      "start": 25.12,
+      "title": "Cocina y barra",
+      "text": "Cada estación, lo suyo. Los pedidos avanzan por carriles. Un pedido mixto no está listo hasta que cocina y barra terminan."
+    },
+    {
+      "start": 32.21,
+      "title": "Panel «Hoy»",
+      "text": "Todo el servicio en una pantalla. Quién llama al camarero, qué está en marcha y quién llega. Sin saltar de pantalla en pantalla."
+    },
+    {
+      "start": 39.3,
+      "title": "Salón",
+      "text": "El salón, de un vistazo. Cada mesa en su estado, por zonas: comedor, terraza, El Despacho y barra. También en 3D."
+    },
+    {
+      "start": 46.94,
+      "title": "Resumen",
+      "text": "Web y carta · Menú del día · Pedido en mesa · Recogida · Cocina y barra · Panel «Hoy» · Salón 2D y 3D · Reservas y caja"
     }
   ]
 }

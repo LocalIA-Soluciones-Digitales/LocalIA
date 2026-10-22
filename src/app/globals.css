@@ -145,6 +145,15 @@
     mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   }
 
+  /* Pantalla de dispositivo navegable: barra fina que no tapa la captura */
+  .screen-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.35) transparent;
+  }
+  .screen-scroll::-webkit-scrollbar { width: 6px; }
+  .screen-scroll::-webkit-scrollbar-thumb { background: rgb(255 255 255 / 0.35); border-radius: 6px; }
+  .screen-scroll:focus-visible { box-shadow: inset 0 0 0 2px var(--color-signal-bright); }
+
   /* Grano fotográfico muy leve sobre toda la página: evita el banding de los degradados */
   .grain::after {
     content: "";

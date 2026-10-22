@@ -1,14 +1,20 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { SectionIntro } from "@/components/ui/SectionIntro";
 import { TextReveal } from "@/components/animations/TextReveal";
 import { Reveal } from "@/components/animations/Reveal";
 import { PipelineViz } from "@/components/sections/automation/PipelineViz";
+import { AutomationShowcase, type ShowcaseAutomation } from "@/components/sections/automation/AutomationShowcase";
 import { REAL_AUTOMATIONS } from "@/data/automations";
+import { getProject } from "@/data/projects";
+import { prettyUrl } from "@/lib/utils";
 
 export function AutomationSection({ index = "04" }: { index?: string }) {
+  const items: ShowcaseAutomation[] = REAL_AUTOMATIONS.flatMap((a) => {
+    const p = getProject(a.slug);
+    return p ? [{ ...a, name: p.name, accent: p.theme.accent, url: p.productionUrl ? prettyUrl(p.productionUrl) : undefined }] : [];
+  });
+
   return (
-    <section aria-labelledby="automatizacion-title" className="relative overflow-hidden border-t border-white/[0.06] py-24 md:py-36">
+    <section aria-labelledby="automatizacion-title" className="relative overflow-hidden border-t border-white/[0.06] pb-20 pt-24 md:pb-24 md:pt-36">
       <div aria-hidden className="absolute inset-0 -z-10 bg-grid opacity-50 mask-fade-y" />
       <div aria-hidden className="absolute left-1/2 top-0 -z-10 h-[50vh] w-[70vw] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(63_216_232/0.08),transparent)]" />
 
@@ -35,33 +41,16 @@ export function AutomationSection({ index = "04" }: { index?: string }) {
           <PipelineViz />
         </Reveal>
 
-        <div className="mt-24 md:mt-32">
-          <Reveal>
-            <p className="eyebrow">Ya funciona en proyectos reales</p>
+        <div className="mt-20 md:mt-28">
+          <Reveal className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <h3 className="text-[1.6rem] font-medium leading-tight tracking-[-0.035em] text-white md:text-[2rem]">
+              Ya funciona en <span className="serif-accent text-fog-300">negocios reales.</span>
+            </h3>
+            <p className="max-w-sm text-sm text-fog-500">Cada flujo, tal y como corre en producción.</p>
           </Reveal>
-          <ul className="mt-8 grid border-t border-white/[0.08] md:grid-cols-2">
-            {REAL_AUTOMATIONS.map((a, i) => (
-              <li key={a.slug} className="border-b border-white/[0.08] md:odd:border-r md:odd:pr-8 md:even:pl-8">
-                <Reveal delay={i * 0.08}>
-                  <Link href={`/proyectos/${a.slug}`} className="group block py-8">
-                    <div className="flex items-center justify-between gap-4">
-                      <p className="text-lg font-medium tracking-[-0.02em] text-white">{a.project}</p>
-                      <ArrowUpRight aria-hidden className="size-4 text-fog-500 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
-                    </div>
-                    <p className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1.5 font-mono text-[0.7rem] uppercase tracking-[0.08em]">
-                      {a.steps.map((s, si) => (
-                        <span key={s} className="flex items-center gap-2">
-                          {si > 0 && <span aria-hidden className="text-cyan/70">→</span>}
-                          <span className={si === a.steps.length - 1 ? "text-cyan" : "text-fog-300"}>{s}</span>
-                        </span>
-                      ))}
-                    </p>
-                    <p className="mt-4 max-w-lg text-sm leading-relaxed text-fog-400">{a.summary}</p>
-                  </Link>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
+          <Reveal>
+            <AutomationShowcase items={items} />
+          </Reveal>
         </div>
       </div>
     </section>

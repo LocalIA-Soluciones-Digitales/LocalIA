@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { m, useScroll, useTransform } from "framer-motion";
-import { BrowserFrame, PhoneFrame } from "@/components/projects/DeviceFrames";
+import { BrowserFrame, PhoneFrame, PHONE_SCREEN_ASPECT } from "@/components/projects/DeviceFrames";
 import { ScrollScreen } from "@/components/projects/ScrollScreen";
 import type { Media } from "@/lib/media";
 
@@ -55,7 +55,7 @@ export function CaseDevices({ desktop, mobile, url, accent, name }: Props) {
               className="absolute -bottom-[4%] right-[2%] w-[34%] max-w-[300px] md:right-[6%] md:w-[26%]"
             >
               <PhoneFrame>
-                <ScrollScreen image={mobile} frameAspect={390 / 744} progress={phoneScreen} sizes="300px" />
+                <ScrollScreen image={mobile} frameAspect={PHONE_SCREEN_ASPECT} progress={phoneScreen} sizes="300px" />
               </PhoneFrame>
             </m.div>
           </div>

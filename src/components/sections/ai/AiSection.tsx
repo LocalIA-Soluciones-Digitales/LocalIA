@@ -16,7 +16,7 @@ const USE_CASES = [
 
 export function AiSection({ index = "05" }: { index?: string }) {
   return (
-    <section aria-labelledby="ia-title" className="relative overflow-hidden border-t border-white/[0.06] py-24 md:py-36">
+    <section aria-labelledby="ia-title" className="relative overflow-hidden border-t border-white/[0.06] py-24 md:py-32">
       <div aria-hidden className="absolute -right-[10%] top-[10%] -z-10 h-[60vh] w-[50vw] rounded-full bg-[radial-gradient(closest-side,rgb(157_125_255/0.12),transparent)] blur-2xl" />
 
       <div className="container-x">

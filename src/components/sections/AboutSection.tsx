@@ -20,9 +20,9 @@ const PRINCIPLES = [
         <Link href="/proyectos/palomita-bar" className="text-fog-100 underline underline-offset-4 hover:text-white">
           Palomita Bar
         </Link>{" "}
-        da servicio hoy también a{" "}
-        <Link href="/proyectos/bar-la-osa" className="text-fog-100 underline underline-offset-4 hover:text-white">
-          La Osa
+        es hoy también la base de{" "}
+        <Link href="/proyectos/restaurante-la-ofi" className="text-fog-100 underline underline-offset-4 hover:text-white">
+          Restaurante La Ofi
         </Link>
         , con los datos de cada negocio aislados.
       </>

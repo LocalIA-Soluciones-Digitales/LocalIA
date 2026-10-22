@@ -1,4 +1,12 @@
 {
+  "/projects/amway-barakaldo/demo-thumb.jpg": {
+    "width": 640,
+    "height": 360
+  },
+  "/projects/amway-barakaldo/demo.jpg": {
+    "width": 1920,
+    "height": 1080
+  },
   "/projects/amway-barakaldo/desktop-belleza.jpg": {
     "width": 1440,
     "height": 900
@@ -39,37 +47,13 @@
     "width": 1280,
     "height": 800
   },
-  "/projects/bar-la-osa/desktop-carta.jpg": {
-    "width": 1440,
-    "height": 900
+  "/projects/electric-instalaciones-electricas/demo-thumb.jpg": {
+    "width": 640,
+    "height": 360
   },
-  "/projects/bar-la-osa/desktop-full.webp": {
-    "width": 1280,
-    "height": 5565
-  },
-  "/projects/bar-la-osa/desktop-home.jpg": {
-    "width": 1440,
-    "height": 900
-  },
-  "/projects/bar-la-osa/desktop-reservar.jpg": {
-    "width": 1440,
-    "height": 900
-  },
-  "/projects/bar-la-osa/mobile-carta.jpg": {
-    "width": 780,
-    "height": 1328
-  },
-  "/projects/bar-la-osa/mobile-full.webp": {
-    "width": 585,
-    "height": 7800
-  },
-  "/projects/bar-la-osa/mobile-home.jpg": {
-    "width": 780,
-    "height": 1328
-  },
-  "/projects/bar-la-osa/mobile-reservar.jpg": {
-    "width": 780,
-    "height": 1328
+  "/projects/electric-instalaciones-electricas/demo.jpg": {
+    "width": 1920,
+    "height": 1080
   },
   "/projects/electric-instalaciones-electricas/desktop-full.webp": {
     "width": 1280,
@@ -102,6 +86,14 @@
   "/projects/electric-instalaciones-electricas/scroll-poster.jpg": {
     "width": 1280,
     "height": 800
+  },
+  "/projects/palomita-bar/demo-thumb.jpg": {
+    "width": 640,
+    "height": 360
+  },
+  "/projects/palomita-bar/demo.jpg": {
+    "width": 1920,
+    "height": 1080
   },
   "/projects/palomita-bar/desktop-carta.jpg": {
     "width": 1440,
@@ -147,6 +139,14 @@
     "width": 1280,
     "height": 800
   },
+  "/projects/pescados-mariscos-arrantza/demo-thumb.jpg": {
+    "width": 640,
+    "height": 360
+  },
+  "/projects/pescados-mariscos-arrantza/demo.jpg": {
+    "width": 1920,
+    "height": 1080
+  },
   "/projects/pescados-mariscos-arrantza/desktop-full.webp": {
     "width": 1280,
     "height": 6400
@@ -187,6 +187,14 @@
     "width": 1280,
     "height": 800
   },
+  "/projects/reformas-integrales-martin/demo-thumb.jpg": {
+    "width": 640,
+    "height": 360
+  },
+  "/projects/reformas-integrales-martin/demo.jpg": {
+    "width": 1920,
+    "height": 1080
+  },
   "/projects/reformas-integrales-martin/desktop-contacto.jpg": {
     "width": 1440,
     "height": 900
@@ -224,6 +232,54 @@
     "height": 1328
   },
   "/projects/reformas-integrales-martin/scroll-poster.jpg": {
+    "width": 1280,
+    "height": 800
+  },
+  "/projects/restaurante-la-ofi/desktop-carta.jpg": {
+    "width": 1440,
+    "height": 900
+  },
+  "/projects/restaurante-la-ofi/desktop-espacios.jpg": {
+    "width": 1440,
+    "height": 900
+  },
+  "/projects/restaurante-la-ofi/desktop-full.webp": {
+    "width": 1280,
+    "height": 6400
+  },
+  "/projects/restaurante-la-ofi/desktop-home.jpg": {
+    "width": 1440,
+    "height": 900
+  },
+  "/projects/restaurante-la-ofi/desktop-menu-del-dia.jpg": {
+    "width": 1440,
+    "height": 900
+  },
+  "/projects/restaurante-la-ofi/desktop-pedir.jpg": {
+    "width": 1440,
+    "height": 900
+  },
+  "/projects/restaurante-la-ofi/mobile-carta.jpg": {
+    "width": 780,
+    "height": 1328
+  },
+  "/projects/restaurante-la-ofi/mobile-full.webp": {
+    "width": 585,
+    "height": 7800
+  },
+  "/projects/restaurante-la-ofi/mobile-home.jpg": {
+    "width": 780,
+    "height": 1328
+  },
+  "/projects/restaurante-la-ofi/mobile-menu-del-dia.jpg": {
+    "width": 780,
+    "height": 1328
+  },
+  "/projects/restaurante-la-ofi/mobile-pedir.jpg": {
+    "width": 780,
+    "height": 1328
+  },
+  "/projects/restaurante-la-ofi/scroll-poster.jpg": {
     "width": 1280,
     "height": 800
   }
