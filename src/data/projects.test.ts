@@ -27,6 +27,7 @@ describe("portfolio", () => {
         expect(fs.existsSync(publicFile(p.demo.src)), p.demo.src).toBe(true);
         expect(fs.existsSync(publicFile(p.demo.poster)), p.demo.poster).toBe(true);
         expect(fs.existsSync(publicFile(p.demo.chaptersTrack)), p.demo.chaptersTrack).toBe(true);
+        expect(fs.existsSync(publicFile(p.demo.thumb)), p.demo.thumb).toBe(true);
       }
     }
   });

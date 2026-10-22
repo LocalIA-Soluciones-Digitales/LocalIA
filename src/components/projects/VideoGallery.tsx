@@ -101,7 +101,7 @@ export function VideoGallery({ videos }: { videos: GalleryVideo[] }) {
                 )}
               >
                 <span className="relative block aspect-video overflow-hidden rounded-xl bg-ink-900">
-                  <Image src={v.demo.poster} alt="" fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw" className="object-cover" />
+                  <Image src={v.demo.thumb} alt="" fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw" className="object-cover" />
                   <span className="absolute bottom-2 right-2 rounded-md bg-ink-950/80 px-1.5 py-0.5 font-mono text-[0.7rem] tabular-nums text-fog-100">
                     {formatClock(v.demo.duration)}
                   </span>

@@ -10,9 +10,10 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
-    formats: ["image/avif", "image/webp"],
-    deviceSizes: [390, 640, 828, 1080, 1280, 1600, 1920],
-    minimumCacheTTL: 60 * 60 * 24 * 30,
+    // Las imágenes de /public ya salen optimizadas de scripts/optimize-media.mjs.
+    // Servirlas tal cual evita depender de la cuota de optimización de Vercel:
+    // al agotarse, /_next/image responde 402 y las imágenes salen rotas.
+    unoptimized: true,
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],

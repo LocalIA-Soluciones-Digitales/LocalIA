@@ -42,6 +42,8 @@ export interface DemoChapter {
 export interface ProjectDemo {
   src: string;
   poster: string;
+  /** Póster reducido (640 px) para listados. */
+  thumb: string;
   /** Pista WebVTT de capítulos. */
   chaptersTrack: string;
   duration: number;
@@ -113,6 +115,7 @@ function defineProject({ demoSeconds, ...p }: ProjectInput): Project {
       ? {
           src: `/projects/${p.slug}/demo.mp4`,
           poster: `/projects/${p.slug}/demo.jpg`,
+          thumb: `/projects/${p.slug}/demo-thumb.jpg`,
           chaptersTrack: `/projects/${p.slug}/demo-chapters.vtt`,
           duration: demoSeconds,
           chapters: (DEMO_CHAPTERS as Record<string, DemoChapter[]>)[p.slug] ?? [],
