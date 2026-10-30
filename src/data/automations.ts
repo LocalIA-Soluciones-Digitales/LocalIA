@@ -27,6 +27,13 @@ export const REAL_AUTOMATIONS: RealAutomation[] = [
     summary: "El pedido hecho desde la mesa aparece en cocina y barra al instante y la comanda se imprime sola.",
   },
   {
+    project: "La Ofi",
+    slug: "restaurante-la-ofi",
+    image: "/projects/restaurante-la-ofi/desktop-menu-del-dia.jpg",
+    steps: ["Panel del encargado", "Menú del día", "Web pública", "Pedido en mesa"],
+    summary: "El encargado escribe el menú del día desde el panel y la web lo muestra al momento, listo para pedirlo desde la mesa.",
+  },
+  {
     project: "Electric",
     slug: "electric-instalaciones-electricas",
     image: "/projects/electric-instalaciones-electricas/desktop-home.jpg",
