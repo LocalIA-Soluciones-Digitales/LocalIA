@@ -47,6 +47,13 @@ export const REAL_AUTOMATIONS: RealAutomation[] = [
     steps: ["Checkout", "Pago Stripe", "Pedido", "Push al móvil"],
     summary: "Cuando un cliente paga, el pedido se registra y el panel avisa con una notificación push.",
   },
+  {
+    project: "Reformas Martín",
+    slug: "reformas-integrales-martin",
+    image: "/projects/reformas-integrales-martin/desktop-servicios.jpg",
+    steps: ["Calculadora", "Estimación orientativa", "API de captación", "Cualificación"],
+    summary: "La calculadora da un presupuesto orientativo y envía la solicitud a la API de captación, donde un agente la cualifica para su seguimiento.",
+  },
 ];
 
 /** Flujo conceptual que muestra la visualización principal. */

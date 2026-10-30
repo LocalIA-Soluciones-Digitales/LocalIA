@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { BellRing, ChefHat, CreditCard, Scale, UtensilsCrossed, Zap } from "lucide-react";
+import { BellRing, Calculator, ChefHat, CreditCard, Scale, UtensilsCrossed, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /** Flujos que funcionan hoy en proyectos reales de LocalIA (ver data/automations.ts). */
@@ -12,6 +12,7 @@ const EVENTS = [
   { icon: ChefHat, from: "Menú del día en el panel", to: "Publicado en la web", project: "La Ofi", slug: "restaurante-la-ofi" },
   { icon: Zap, from: "Aviso de avería", to: "WhatsApp + email", project: "Electric", slug: "electric-instalaciones-electricas" },
   { icon: CreditCard, from: "Pago confirmado", to: "Aviso push al panel", project: "Amway Barakaldo", slug: "amway-barakaldo" },
+  { icon: Calculator, from: "Presupuesto calculado", to: "Solicitud cualificada", project: "Reformas Martín", slug: "reformas-integrales-martin" },
 ];
 
 export function HeroEvents() {
