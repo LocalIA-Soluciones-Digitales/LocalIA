@@ -29,7 +29,7 @@ export const REAL_AUTOMATIONS: RealAutomation[] = [
   {
     project: "La Ofi",
     slug: "restaurante-la-ofi",
-    image: "/projects/restaurante-la-ofi/desktop-menu-del-dia.jpg",
+    image: "/projects/restaurante-la-ofi/desktop-home.jpg",
     steps: ["Panel del encargado", "Menú del día", "Web pública", "Pedido en mesa"],
     summary: "El encargado escribe el menú del día desde el panel y la web lo muestra al momento, listo para pedirlo desde la mesa.",
   },

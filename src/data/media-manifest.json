@@ -251,23 +251,31 @@
     "width": 1440,
     "height": 900
   },
+  "/projects/restaurante-la-ofi/desktop-eventos.jpg": {
+    "width": 1440,
+    "height": 900
+  },
   "/projects/restaurante-la-ofi/desktop-full.webp": {
     "width": 1280,
     "height": 6400
+  },
+  "/projects/restaurante-la-ofi/desktop-grupos.jpg": {
+    "width": 1440,
+    "height": 900
   },
   "/projects/restaurante-la-ofi/desktop-home.jpg": {
     "width": 1440,
     "height": 900
   },
-  "/projects/restaurante-la-ofi/desktop-menu-del-dia.jpg": {
-    "width": 1440,
-    "height": 900
-  },
-  "/projects/restaurante-la-ofi/desktop-pedir.jpg": {
+  "/projects/restaurante-la-ofi/desktop-vinos.jpg": {
     "width": 1440,
     "height": 900
   },
   "/projects/restaurante-la-ofi/mobile-carta.jpg": {
+    "width": 780,
+    "height": 1328
+  },
+  "/projects/restaurante-la-ofi/mobile-eventos.jpg": {
     "width": 780,
     "height": 1328
   },
@@ -279,11 +287,7 @@
     "width": 780,
     "height": 1328
   },
-  "/projects/restaurante-la-ofi/mobile-menu-del-dia.jpg": {
-    "width": 780,
-    "height": 1328
-  },
-  "/projects/restaurante-la-ofi/mobile-pedir.jpg": {
+  "/projects/restaurante-la-ofi/mobile-vinos.jpg": {
     "width": 780,
     "height": 1328
   },
